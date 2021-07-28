@@ -17,6 +17,8 @@ namespace Model
 
         public DateTime? ExpenseDate { get; set; }
 
+        public decimal UsdExchangeRate { get; set; }
+
         [ForeignKey("Requester")]
         public int RequesterId { get; set; }
 

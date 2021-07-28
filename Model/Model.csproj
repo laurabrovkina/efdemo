@@ -7,6 +7,10 @@
   <ItemGroup>
     <Compile Remove="Migrations\20210720072933_expenseheaderid.cs" />
     <Compile Remove="Migrations\20210720072933_expenseheaderid.Designer.cs" />
+    <Compile Remove="Migrations\20210728053119_separateconfigfile.cs" />
+    <Compile Remove="Migrations\20210728053119_separateconfigfile.Designer.cs" />
+    <Compile Remove="Migrations\20210728053519_applyconfigfromassembly.cs" />
+    <Compile Remove="Migrations\20210728053519_applyconfigfromassembly.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
