@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -27,16 +28,32 @@ namespace efdemo.Controllers
         [HttpGet]
         public IEnumerable<User> Get()
         {
-            List<User> users = _unitOfWork.Users.GetAll().ToList();
+            List<User> users = _unitOfWork.Users.GetByFirstName("John").ToList();
+            return users;
+        }
+
+        // GET: api/<UserController>/GetAllFirstNames
+        [HttpGet("GetAllFirstNames")]
+        public IEnumerable GetAllFirstNames()
+        {
+            IEnumerable users = _unitOfWork.Users.GetAllFirstNames();
             return users;
         }
 
         // GET api/<UserController>/5
-        [HttpGet("{id}")]
-        public User Get(int id)
+        [HttpGet("{firstName}")]
+        public User Get(string lastName)
         {
-            User user = _unitOfWork.Users.Get(id);
+            User user = _unitOfWork.Users.GetOnlyByFirstName(lastName);
             return user;
+        }
+
+        // GET api/<UserController>/countMatching/{firstName}
+        [HttpGet("countMatching/{firstName}")]
+        public int GetNumberOfMatchingFirstNames(string firstName)
+        {
+            var numberOfMatchingFirstNames = _unitOfWork.Users.CountMatchingFirstame(firstName);
+            return numberOfMatchingFirstNames;
         }
 
         // POST api/<UserController>
