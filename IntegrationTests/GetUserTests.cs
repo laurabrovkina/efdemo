@@ -1,5 +1,4 @@
-﻿using efdemo;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Model;
 using System.Collections.Generic;
 using System.Text.Json;
@@ -10,10 +9,10 @@ namespace IntegrationTests
 {
     public class GetUserTests : IntegrationTestBase
     {
-        private readonly CustomWebApplicationFactory<Startup, ApplicationDbContext> _integrationTestFactory;
+        private readonly CustomWebApplicationFactory<Program, ApplicationDbContext> _integrationTestFactory;
         private readonly UserCreator _userCreator;
 
-        public GetUserTests(CustomWebApplicationFactory<Startup, ApplicationDbContext> factory) : base(factory)
+        public GetUserTests(CustomWebApplicationFactory<Program, ApplicationDbContext> factory) : base(factory)
         {
             _integrationTestFactory = factory;
             var scope = factory.Services.CreateScope();

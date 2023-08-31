@@ -1,16 +1,15 @@
-﻿using efdemo;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Model;
 using Xunit;
 
 namespace IntegrationTests
 {
-    public class IntegrationTestBase : IClassFixture<CustomWebApplicationFactory<Startup, ApplicationDbContext>>
+    public class IntegrationTestBase : IClassFixture<CustomWebApplicationFactory<Program, ApplicationDbContext>>
     {
-        public readonly CustomWebApplicationFactory<Startup, ApplicationDbContext> Factory;
+        public readonly CustomWebApplicationFactory<Program, ApplicationDbContext> Factory;
         public readonly ApplicationDbContext DbContext;
 
-        public IntegrationTestBase(CustomWebApplicationFactory<Startup, ApplicationDbContext> factory)
+        public IntegrationTestBase(CustomWebApplicationFactory<Program, ApplicationDbContext> factory)
         {
             Factory = factory;
             var scope = factory.Services.CreateScope();
