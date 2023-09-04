@@ -23,13 +23,13 @@ namespace Model
         public int RequesterId { get; set; }
 
         [InverseProperty("RequesterExpenseHeaders")]
-        public User Requester { get; set; }
+        public ExpanseUser Requester { get; set; }
 
         [ForeignKey("Approver")]
         public int ApproverId { get; set; }
 
         [InverseProperty("ApproverExpenseHeaders")]
-        public User Approver { get; set; }
+        public ExpanseUser Approver { get; set; }
 
         public List<ExpenseLine> ExpenseLines { get; set; }
     }

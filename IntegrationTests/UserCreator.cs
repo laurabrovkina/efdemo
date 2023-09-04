@@ -16,51 +16,51 @@ namespace IntegrationTests
 
         public async Task AddUsersAsync()
         {
-            var users = new List<User>
+            var users = new List<ExpanseUser>
             {
-                new User
+                new ExpanseUser
                 {
                     FirstName = "User1",
                     LastName = "Last Name User1",
                     CreatedDate = DateTime.Now
                 },
-                new User
+                new ExpanseUser
                 {
                     FirstName = "User2",
                     LastName = "Last Name User2",
                     CreatedDate = DateTime.Now
                 },
-                new User
+                new ExpanseUser
                 {
                     FirstName = "User3",
                     LastName = "Last Name User3",
                     CreatedDate = DateTime.Now
                 },
-                new User
+                new ExpanseUser
                 {
                     FirstName = "User4",
                     LastName = "Last Name User4",
                     CreatedDate = DateTime.Now
                 },                
-                new User
+                new ExpanseUser
                 {
                     FirstName = "User5",
                     LastName = "Last Name User5",
                     CreatedDate = DateTime.Now
                 },
-                new User
+                new ExpanseUser
                 {
                     FirstName = "User6",
                     LastName = "Last Name User6",
                     CreatedDate = DateTime.Now
                 },
-                new User
+                new ExpanseUser
                 {
                     FirstName = "User7",
                     LastName = "Last Name User7",
                     CreatedDate = DateTime.Now
                 },
-                new User
+                new ExpanseUser
                 {
                     FirstName = "User8",
                     LastName = "Last Name User8",

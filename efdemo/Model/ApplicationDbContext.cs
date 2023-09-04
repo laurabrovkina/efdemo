@@ -1,16 +1,18 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 namespace Model
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<User>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         { }
 
         public DbSet<ExpenseHeader> ExpenseHeaders { get; set; }
         public DbSet<ExpenseLine> ExpenseLines { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<ExpanseUser> Users { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -35,7 +37,7 @@ namespace Model
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-
         }
     }
 }
+

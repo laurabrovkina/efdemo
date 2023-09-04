@@ -13,14 +13,14 @@ namespace Repository
 
         }
 
-        public IEnumerable<User> GetByFirstName(string firstName)
+        public IEnumerable<ExpanseUser> GetByFirstName(string firstName)
         {
             return ApplicationDbContext.Users
                 .Where(u => u.FirstName == firstName)
                 .OrderByDescending(u => u.LastName);
         }
 
-        public User GetOnlyByFirstName(string lastName)
+        public ExpanseUser GetOnlyByFirstName(string lastName)
         {
             return ApplicationDbContext.Users
                 .SingleOrDefault(u => u.LastName == lastName);
@@ -45,17 +45,17 @@ namespace Repository
                 .Count(u => u.FirstName == firstName);
         }
 
-        public int GetMaximumUserId()
-        {
-            return ApplicationDbContext.Users
-                .Max(u => u.UserId);
-        }
+        // public int GetMaximumUserId()
+        // {
+        //     return ApplicationDbContext.Users
+        //         .Max(u => u.UserId);
+        // }
 
-        public int GetMinimumUserId()
-        {
-            return ApplicationDbContext.Users
-                .Min(u => u.UserId);
-        }
+        // public int GetMinimumUserId()
+        // {
+        //     return ApplicationDbContext.Users
+        //         .Min(u => u.UserId);
+        // }
 
         public IEnumerable GetAllFirstNames()
         {

@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Identity;
 
 namespace Model
 {
-    public class User
+    public class ExpanseUser
     {
         [Key]
         public int UserId { get; set; }
@@ -19,3 +20,6 @@ namespace Model
         public List<ExpenseHeader> ApproverExpenseHeaders { get; set; }
     }
 }
+
+public class User : IdentityUser
+{ }

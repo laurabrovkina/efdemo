@@ -6,9 +6,9 @@ namespace Repository
 {
     public interface IUserRepository : IRepository<User>
     {
-        IEnumerable<User> GetByFirstName(string firstName);
+        IEnumerable<ExpanseUser> GetByFirstName(string firstName);
 
-        User GetOnlyByFirstName(string firstName);
+        ExpanseUser GetOnlyByFirstName(string firstName);
 
         int CountMatchingFirstame(string firstName);
 

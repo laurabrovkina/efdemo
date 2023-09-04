@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
@@ -26,9 +27,9 @@ namespace efdemo.Controllers
 
         // GET: api/<UserController>
         [HttpGet]
-        public IEnumerable<User> Get()
+        public IEnumerable<ExpanseUser> Get()
         {
-            List<User> users = _unitOfWork.Users.GetByFirstName("John").ToList();
+            List<ExpanseUser> users = _unitOfWork.Users.GetByFirstName("John").ToList();
             return users;
         }
 
@@ -42,9 +43,9 @@ namespace efdemo.Controllers
 
         // GET api/<UserController>/5
         [HttpGet("{firstName}")]
-        public User Get(string lastName)
+        public ExpanseUser Get(string lastName)
         {
-            User user = _unitOfWork.Users.GetOnlyByFirstName(lastName);
+            ExpanseUser user = _unitOfWork.Users.GetOnlyByFirstName(lastName);
             return user;
         }
 
@@ -58,7 +59,7 @@ namespace efdemo.Controllers
 
         // POST api/<UserController>
         [HttpPost]
-        public ActionResult<User> Post([FromBody] User user)
+        public ActionResult<User> Post([FromBody] ExpanseUser user)
         {
             // create user in memory
             _context.Users.Add(user);
@@ -70,7 +71,7 @@ namespace efdemo.Controllers
 
         // PUT api/<UserController>/5
         [HttpPut("{id}")]
-        public ActionResult Put(int id, [FromBody]User user)
+        public ActionResult Put(int id, [FromBody] ExpanseUser user)
         {
             if (id != user.UserId)
             {
@@ -87,7 +88,7 @@ namespace efdemo.Controllers
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
-            User user = _context.Users.Find(id);
+            var user = _context.Users.Find(id);
 
             if (user == null)
             {
