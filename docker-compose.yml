@@ -1,20 +1,14 @@
-version: '3.4'
+version: '3.7'
 
 services:
-  efdemo:
-    image: ${DOCKER_REGISTRY-}efdemo
-    container_name: efdemo
-    build:
-      context: .
-      dockerfile: efdemo/Dockerfile
-
-  products-db:
-    image: mcr.microsoft.com/mssql/server:2022-latest
-    container_name: efdemo.Db
-    volumes:
-        - ./.containers/database:/var/opt/mssql/data
+  db:
+    build: ./efdemo
+    user: root
+    container_name: efdemo-db
     ports:
-        - "15577:1433"
-    environment:
-        ACCEPT_EULA: "Y"
-        SA_PASSWORD: "Strong_password_123!"
+      - "14388:1433"
+    networks:
+      - test
+
+networks:
+  test:

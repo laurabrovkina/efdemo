@@ -1,20 +1,15 @@
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
-WORKDIR /app
-EXPOSE 80
-EXPOSE 443
+FROM mcr.microsoft.com/mssql/server:2019-latest
 
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-WORKDIR /src
-COPY ["efdemo/efdemo.csproj", "efdemo/"]
-RUN dotnet restore "efdemo/efdemo.csproj"
-COPY . .
-WORKDIR "/src/efdemo"
-RUN dotnet build "efdemo.csproj" -c Release -o /app/build
+WORKDIR /usr/src/app
 
-FROM build AS publish
-RUN dotnet publish "efdemo.csproj" -c Release -o /app/publish /p:UseAppHost=false
+COPY . /usr/src/app/
 
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "efdemo.dll"]
+# set environment variables
+ENV MSSQL_SA_PASSWORD=TestDatabase$
+ENV ACCEPT_EULA=Y
+
+EXPOSE 1433
+
+RUN /opt/mssql/bin/sqlservr & sleep 40s \
+    && /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P TestDatabase$ -i /usr/src/app/create-database.sql \
+    && pkill sqlservr
