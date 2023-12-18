@@ -18,8 +18,8 @@ namespace IntegrationTests
         public CustomWebApplicationFactory()
         {
             _msSqlContainer = new MsSqlBuilder()
-                .WithImage("mcr.microsoft.com/mssql/server:2022-latest")
-                .WithPassword("localdev")
+                .WithImage("efdemo-db")
+                .WithPassword("TestDatabase$")
                 .WithCleanUp(true)
                 .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(1433))
                 .Build();
