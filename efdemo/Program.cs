@@ -7,11 +7,15 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddAuthentication().AddBearerToken(IdentityConstants.BearerScheme);
 builder.Services.AddAuthorizationBuilder();
+
+builder.Services.AddOpenApi();
 
 builder.Services.AddControllersWithViews();
 
@@ -27,21 +31,11 @@ builder.Services.AddIdentityCore<User>()
 builder.Services.AddControllers();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-builder.Services.AddSwaggerGen(c =>
-{
-    c.SwaggerDoc("v1", new OpenApiInfo() { Title = "MeetupAPI", Version = "v1" });
-});
-
 var app = builder.Build();
 
 app.UseDeveloperExceptionPage();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-app.UseSwagger();
-app.UseSwaggerUI(c =>
-{
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "MeetupAPI v1");
-});
 
 app.UseRouting();
 
@@ -58,6 +52,4 @@ app.UseEndpoints(endpoints =>
 
 app.Run();
 
-public partial class Program
-{
-}
+public partial class Program;
