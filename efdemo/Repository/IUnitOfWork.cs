@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Repository
+namespace efdemo.Repository
 {
     public interface IUnitOfWork : IDisposable
     {

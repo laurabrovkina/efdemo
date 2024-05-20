@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
-namespace Model
+namespace efdemo.Model
 {
     public class ApplicationDbContext : IdentityDbContext<User>
     {

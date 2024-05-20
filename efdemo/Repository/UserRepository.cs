@@ -1,13 +1,13 @@
-﻿using Model;
+﻿using efdemo.Model;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Repository
+namespace efdemo.Repository
 {
     public class UserRepository : Repository<User>, IUserRepository
     {
-        public UserRepository(ApplicationDbContext context) 
+        public UserRepository(ApplicationDbContext context)
             : base(context)
         {
 
@@ -64,9 +64,9 @@ namespace Repository
                 .ToList();
         }
 
-        public ApplicationDbContext ApplicationDbContext 
+        public ApplicationDbContext ApplicationDbContext
         {
-            get 
+            get
             {
                 return Context as ApplicationDbContext;
             }

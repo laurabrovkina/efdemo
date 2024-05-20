@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Model.EntityConfigurations
+namespace efdemo.Model.EntityConfigurations
 {
     public class UserConfiguration : IEntityTypeConfiguration<ExpanseUser>
     {

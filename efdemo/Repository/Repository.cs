@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 
-namespace Repository
+namespace efdemo.Repository
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Repository
+namespace efdemo.Repository
 {
     public interface IRepository<TEntity> where TEntity : class
     {

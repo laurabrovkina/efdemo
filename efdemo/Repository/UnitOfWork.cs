@@ -1,6 +1,6 @@
-﻿using Model;
+﻿using efdemo.Model;
 
-namespace Repository
+namespace efdemo.Repository
 {
     public class UnitOfWork : IUnitOfWork
     {

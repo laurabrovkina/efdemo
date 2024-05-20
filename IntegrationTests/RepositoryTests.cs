@@ -1,5 +1,5 @@
+using efdemo.Model;
 using Microsoft.EntityFrameworkCore;
-using Model;
 using Repository;
 using System.Linq;
 using System.Threading.Tasks;

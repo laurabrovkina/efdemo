@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Model
+namespace efdemo.Model
 {
     public class ExpenseLine
     {
@@ -10,10 +10,10 @@ namespace Model
         [Range(1, 10, ErrorMessage = "{0} must be between 1 and 10")]
         public int Quantity { get; set; }
         [Column(TypeName = "decimal(16, 2)")]
-        [Range(0.01, 100.00, 
+        [Range(0.01, 100.00,
             ErrorMessage = "Unit Cost must be between 0.01 and 100.00")]
         public decimal UnitCost { get; set; }
-        
+
         [Column(TypeName = "decimal(16,2")]
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public decimal TotalCost { get; set; }

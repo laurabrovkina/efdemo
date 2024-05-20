@@ -1,8 +1,8 @@
-﻿using Model;
+﻿using efdemo.Model;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Repository
+namespace efdemo.Repository
 {
     public interface IUserRepository : IRepository<User>
     {
