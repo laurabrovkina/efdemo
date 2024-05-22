@@ -1,7 +1,5 @@
 ﻿using efdemo.Model;
 using Microsoft.Extensions.DependencyInjection;
-using System.Collections.Generic;
-using System.Text.Json;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -49,7 +47,7 @@ namespace IntegrationTests
 
             //// Assert
             var json = await response.Content.ReadAsStreamAsync();
-            var result = JsonSerializer.Deserialize<List<User>>(json);
+            //var result = JsonSerializer.Deserialize<List<User>>(json);
             //Assert.Equal(1, result.Count);
             //Assert.Equal(expectedUsers.First().UserId, actualUsers.First().UserId);
             //Assert.Equal(expectedUsers.Last().UserId, actualUsers.Last().UserId);

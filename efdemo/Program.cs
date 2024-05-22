@@ -30,7 +30,7 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
 
-//app.MapOpenApi();
+app.MapOpenApi();
 
 app.UseDeveloperExceptionPage();
 app.UseHttpsRedirection();
