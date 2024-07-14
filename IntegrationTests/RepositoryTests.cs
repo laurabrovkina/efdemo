@@ -1,6 +1,6 @@
 using efdemo.Model;
+using efdemo.Repository;
 using Microsoft.EntityFrameworkCore;
-using Repository;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
