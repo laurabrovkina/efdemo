@@ -19,7 +19,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenApi(options =>
 {
-    options.UseTransformer<BearerSecuritySchemeTransformer>();
+    options.AddDocumentTransformer<BearerSecuritySchemeTransformer>();
 });
 
 builder.Services.AddAuthentication().AddBearerToken(IdentityConstants.BearerScheme);
